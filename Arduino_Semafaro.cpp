@@ -10,7 +10,7 @@ void light(int, unsigned long);
 void restart_lights();
 
 unsigned long lastButtonCheck = 0;
-const unsigned long buttonCheckInterval = 10; 
+const unsigned long buttonCheckInterval = 100; 
 
 void setup() {
   pinMode(red, OUTPUT);
@@ -40,12 +40,6 @@ void loop() {
 }
 
 void light(int btnled, unsigned long time) {
-  static unsigned long previousMillis = 0;
-  unsigned long currentMillis = millis();
-
-  if (currentMillis - previousMillis >= time) {
-    previousMillis = currentMillis;
-
     if (btnled == red) {
       digitalWrite(yellow, LOW);
       digitalWrite(green, LOW);
@@ -62,20 +56,12 @@ void light(int btnled, unsigned long time) {
       digitalWrite(green, HIGH);
       delay(time);
     }
-  }
+  
 }
 
 void restart_lights() {
-  digitalWrite(red, HIGH);
-  digitalWrite(yellow, LOW);
-  digitalWrite(green, LOW);
-  delay(10000);
-  digitalWrite(red, LOW);
-  digitalWrite(yellow, HIGH);
-  digitalWrite(green, LOW);
-  delay(5000);
-  digitalWrite(red, LOW);
-  digitalWrite(yellow, LOW);
-  digitalWrite(green, HIGH);
-  delay(15000);
+  light(red, 10000);
+  light(yellow, 5000);
+  light(green, 15000);
+  light(yellow, 5000);
 }
