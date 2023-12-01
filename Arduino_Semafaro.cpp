@@ -33,37 +33,37 @@ void light(int btnled, unsigned long time) {
       digitalWrite(yellow, LOW);
       digitalWrite(green, LOW);
       digitalWrite(red, HIGH);
-      for (int i = 0; i < time; i += 1000) {
+      for (int i = 0; i <= time; i += 500) {
         // Verifica o botão a cada intervalo definido
         if (digitalRead(btn) == LOW) {
           restart_lights(); 
           break;
         }
-        delay(1000);
+        delay(500);
       } 
     } else if (btnled == yellow) {
       digitalWrite(red, LOW);
       digitalWrite(green, LOW);
       digitalWrite(yellow, HIGH);
-      for (int i = 0; i < time; i += 1000) {
+      for (int i = 0; i <= time; i += 500) {
         // Verifica o botão a cada intervalo definido
         if (digitalRead(btn) == LOW) {
           restart_lights(); 
           break;
         }
-        delay(1000);
+        delay(500);
       } 
     } else if (btnled == green) {
       digitalWrite(red, LOW);
       digitalWrite(yellow, LOW);
       digitalWrite(green, HIGH);
-      for (int i = 0; i < time; i += 1000) {
+      for (int i = 0; i <= time; i += 500) {
         // Verifica o botão a cada intervalo definido
         if (digitalRead(btn) == LOW) {
           restart_lights(); 
           break;
         }
-        delay(1000);
+        delay(500);
       } 
     }
 }
